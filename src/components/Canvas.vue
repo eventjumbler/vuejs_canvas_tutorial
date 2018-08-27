@@ -1,6 +1,6 @@
 <template>
   <div class="canvas">
-    <Pixel :is_picker="false" v-for="(color, index) in pixels" :color="color" :key=index :index=index />
+    <Pixel :is_picker="false" v-for="(color_num, index) in pixels" :color_num="color_num" :key=index :index=index />
   </div>
 </template>
 

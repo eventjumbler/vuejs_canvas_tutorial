@@ -11,7 +11,8 @@ import Vue from 'vue'
 import Canvas from "./components/Canvas";
 import ColorPicker from "./components/ColorPicker";
 
-const defaultColor = 'white';
+
+const defaultColor = 0;  // white
 
 function createPixels(){
   var arr = Array(30*30);
@@ -29,13 +30,14 @@ export default {
   },
   data: function() {
     return {
-      selected_color: "white",
-      pixels: createPixels(),
+      selected_color: defaultColor,
+      pixels: [],
     };
   },
   methods: {
     setPixel(index){
         Vue.set(this.pixels, index, this.selected_color);  // cannot set array val directly
+        localStorage.setItem('vue_pixel_canvas', JSON.stringify(this.pixels));
     }
   },
   mounted() {
@@ -44,6 +46,15 @@ export default {
     });
 
     this.$root.$on('pixelclicked', this.setPixel);
+
+    if ('vue_pixel_canvas' in localStorage){
+      //this.pixels = localStorage.getItem('vue_pixel_canvas');
+      this.pixels = JSON.parse(localStorage.getItem("vue_pixel_canvas"));
+      //this.pixels = createPixels();
+    } else {
+      this.pixels = createPixels();
+    }
+
   }
 };
 </script>

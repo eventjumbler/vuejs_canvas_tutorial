@@ -4,10 +4,12 @@
 </template>
 
 <script>
+const colors = ['white', 'lightblue', 'blue', 'darkblue'];
+
 export default {
   name: "Pixel",
   props: {
-    color: String,
+    color_num: Number,
     is_selected: Boolean,
     is_picker: Boolean,
     index: Number
@@ -15,10 +17,15 @@ export default {
   methods: {
     handleClick: function() {
       if (this.is_picker) {
-        this.$root.$emit("updatecolor", this.color);
+        this.$root.$emit("updatecolor", this.color_num);
         return;
       }
       this.$root.$emit("pixelclicked", this.index);
+    }
+  },
+  computed: {
+    color: function(){
+      return colors[this.color_num];
     }
   }
 };

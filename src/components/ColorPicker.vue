@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Pixel color="white" :is_selected="selected_color == 'white' ? true : false" :is_picker="true"/>
-    <Pixel color="lightblue" :is_selected="selected_color == 'lightblue' ? true : false" :is_picker="true"/>
-    <Pixel color="blue" :is_selected="selected_color == 'blue' ? true : false" :is_picker="true"/>
-    <Pixel color="darkblue" :is_selected="selected_color == 'darkblue' ? true : false" :is_picker="true"/>
+    <Pixel color_num="0" :is_selected="selected_color == '0' ? true : false" :is_picker="true"/>
+    <Pixel color_num="1" :is_selected="selected_color == '1' ? true : false" :is_picker="true"/>
+    <Pixel color_num="2" :is_selected="selected_color == '2' ? true : false" :is_picker="true"/>
+    <Pixel color_num="3"  :is_selected="selected_color == '3' ? true : false" :is_picker="true"/>
   </div>
 </template>
 
